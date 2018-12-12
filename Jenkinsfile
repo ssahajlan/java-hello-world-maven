@@ -5,8 +5,10 @@ pipeline {
         steps {
           script {
             checkout scm
+            sh 'java --version'
             def MavenHome = tool 'MAVEN-3'
             def JavaHome  = tool 'JAVA_1.8' 
+            sh 'java --version'
           }
         }
       }      
