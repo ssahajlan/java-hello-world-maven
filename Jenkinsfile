@@ -5,7 +5,7 @@ pipeline {
         steps {
           script {
             checkout scm
-            def MavenHome = tool 'maven-3'
+            def mvhome = tool 'maven-3'
           }
         }
       }      
