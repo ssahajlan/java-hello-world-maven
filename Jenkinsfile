@@ -5,10 +5,19 @@ pipeline {
         steps {
           script {
             checkout scm
-            def mvnHome = tool 'MAVEN-3'
-            def mvnHome = tool 'JAVA_1.8' 
+            def MavenHome = tool 'MAVEN-3'
+            def JavaHome  = tool 'JAVA_1.8' 
           }
         }
       }      
     }
+    /*stage ('User Approval') {
+      steps {
+         input ('Do you want to proceed?')
+      } 
+    }
+    stage ('Build') {
+    try { currentBuild.result = 'SUCCESS'}
+    
+  }*/
 }
