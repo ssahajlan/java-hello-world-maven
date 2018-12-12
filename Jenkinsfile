@@ -10,13 +10,11 @@ pipeline {
           }
         }
       }      
-    }
-    stage ('User Approval') {
-      steps {
-         input ('Do you want to proceed?')
-         
-      } 
-    }
+      stage ('User Approval') {
+        steps {
+          input ('Do you want to proceed?')
+        } 
+      }
     stage ('Build') {
       steps {
         script {
