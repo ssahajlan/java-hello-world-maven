@@ -11,13 +11,18 @@ pipeline {
         }
       }      
     }
-    /*stage ('User Approval') {
+    stage ('User Approval') {
       steps {
          input ('Do you want to proceed?')
+         
       } 
     }
     stage ('Build') {
-    try { currentBuild.result = 'SUCCESS'}
-    
-  }*/
+      steps {
+        script {
+         sh 'mvn clean install'
+        }  
+      }
+    }
+  
 }
