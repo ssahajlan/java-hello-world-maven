@@ -13,7 +13,6 @@ pipeline {
     stage ('Build') {
       steps {
         script {
-         def MavenHome = tool 'maven-3'
          sh "mvn clean install -U -Dmaven.test.skip = true"
         }  
       }
