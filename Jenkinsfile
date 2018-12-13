@@ -13,7 +13,7 @@ pipeline {
     stage ('Build') {
       steps {
         script {
-         sh "mvn clean install -U -Dmaven.test.skip = true"
+         echo "in the build step"
         }  
       }
     }
