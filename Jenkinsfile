@@ -14,7 +14,7 @@ pipeline {
       stage ('Stage#2 : SCM Checkout') {
         steps {
           script {
-            /*git 'https://github.com/ssahajlan/java-hello-world-maven.git'*/
+            git 'https://github.com/ssahajlan/java-hello-world-maven.git'
             checkout scm
           }
         }
