@@ -1,12 +1,13 @@
 pipeline {
   agent any
     stages {
-      stage ('Install Maven Java') {
+      stage ('Install Maven and Java') {
         steps {
           script {
             git 'https://github.com/ssahajlan/java-hello-world-maven.git'
             checkout scm
             def mvnhome = tool 'maven-3'
+            def Javahome = tool 'JAVA-1.8'
           }
         }
       }      
