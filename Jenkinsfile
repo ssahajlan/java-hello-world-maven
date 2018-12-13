@@ -5,6 +5,7 @@ pipeline {
         steps {
           script {
             sh "yum -y install maven"
+            sh "yum -y install unzip java-1.8.0-openjdk"
         /*    def mvnHome = tool 'maven-3'
             def Javahome = tool 'JAVA-1.8'*/
             git 'https://github.com/ssahajlan/java-hello-world-maven.git'
