@@ -13,6 +13,7 @@ pipeline {
     stage ('Build') {
       steps {
         script {
+         sh "sudo yum install -y maven"
          echo "in the build step"
         }  
       }
