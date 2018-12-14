@@ -1,5 +1,5 @@
 FROM openjdk:8-jre-alpine
-WORKDIR /app
+WORKDIR /var/lib/jenkins/workspace/MavProj/target/
 COPY . .
 EXPOSE 3000
-CMD java -jar /target/myapp-1.0-jar-with-dependencies.jar
+CMD java -jar myapp-1.0-jar-with-dependencies.jar
