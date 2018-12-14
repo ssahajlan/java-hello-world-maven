@@ -1,12 +1,4 @@
-/*FROM alpine/git*/
-FROM centos:7
-WORKDIR /app
-RUN git clone https://github.com/ssahajlan/java-hello-world-maven.git
-FROM maven:3.5-jdk-8-alpine
-WORKDIR /app
-COPY --from=0 /app/maven-project/app
-RUN mvn install
 FROM openjdk:8-jre-alpine
 WORKDIR /app
-COPY --from=1 /app/target/maven-project01.jar/app
-CMD ["java -jar maven-project01.jar"]
+COPY /myapp/1.0/myapp-1.0-jar-with-dependencies.jar /app
+CMD ["java -jar myapp-1.0-jar-with-dependencies.jar"]
