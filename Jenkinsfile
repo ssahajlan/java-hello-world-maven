@@ -18,6 +18,13 @@ pipeline {
             checkout scm
           }
         }
-      }            
+      }  
+      stage ('Stage#2 : JAR Build') {
+        steps {
+          script {
+            sh "mvn clean install"            
+          }
+        }
+      }                  
   }
 }
