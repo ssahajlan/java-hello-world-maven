@@ -21,7 +21,7 @@ pipeline {
       }  
       stage ('Stage#2 : JAR Build') {
         steps {
-          script {
+          script { 
             sh "mvn clean install"            
           }
         }
