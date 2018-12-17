@@ -40,7 +40,7 @@ pipeline {
             sh "sudo docker login -u=$env.DUser -p=$env.DPassword "
             sh "sudo docker push ssahajlan/myapp-1.0-jar-with-dependencies"
             
-            sh "sudo docker run -d ssahajlan/myapp-1.0-jar-with-dependencies"
+            sh "sudo docker run -p 3010:8080 -d ssahajlan/myapp-1.0-jar-with-dependencies"
           }
         }
       }                        
