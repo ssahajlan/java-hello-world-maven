@@ -8,8 +8,8 @@ pipeline {
         /*  sh "yum -y install maven"
             sh "yum -y install unzip java-1.8.0-openjdk" */
             
-            sh "apt-get update && apt-get upgrade"
-            sh "apt-get install default-jdk"          
+            sh "sudo apt-get update && apt-get upgrade"
+            sh "sudo apt-get install default-jdk"          
           }
         }
       }     /* 
