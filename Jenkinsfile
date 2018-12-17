@@ -37,7 +37,7 @@ pipeline {
             sh "sudo docker build -t ssahajlan/myapp-1.0-jar-with-dependencies ." 
             sh "sudo docker images"
             
-            sh "sudo docker login $env.DUser $env.DPassword "
+            sh "sudo docker login -u=$env.DUser -p=$env.DPassword "
             sh "sudo docker push ssahajlan/myapp-1.0-jar-with-dependencies"
           }
         }
