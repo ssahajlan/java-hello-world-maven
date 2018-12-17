@@ -31,15 +31,13 @@ pipeline {
       stage ('Stage#4 : Build & Push Docker Image') {
         steps {
           script { 
-            sh "docker login env.UserName = ssahajlan"
-            sh "docker login env.UserEmail = sima.sahajlan@gmail.com"
-            
             sh "sudo docker rmi ssahajlan/myapp-1.0-jar-with-dependencies"
             sh "sudo docker images"
             
             sh "sudo docker build -t ssahajlan/myapp-1.0-jar-with-dependencies ." 
             sh "sudo docker images"
             
+            sh "sudo docker login --env.username='DUser' --env.password='DPassword' "
             sh "sudo docker push ssahajlan/myapp-1.0-jar-with-dependencies"
           }
         }
