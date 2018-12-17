@@ -13,7 +13,7 @@ pipeline {
             sh "sudo apt-get install maven -y"
           }
         }
-      }   /* 
+      }    
       stage ('Stage#2 : SCM Checkout') {
         steps {
           script {
@@ -28,6 +28,6 @@ pipeline {
             sh "mvn clean install"            
           }
         }
-      }  */                
+      }                  
   }
 }
