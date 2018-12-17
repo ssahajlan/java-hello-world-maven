@@ -9,7 +9,6 @@ pipeline {
             sh "yum -y install unzip java-1.8.0-openjdk" */
             sh "sudo apt-get update -y"
             sh "sudo apt-get install openjdk-8-jdk -y"    
-            
             sh "sudo apt-get install maven -y"
           }
         }
@@ -22,12 +21,20 @@ pipeline {
           }
         }
       }  
-      stage ('Stage#2 : JAR Build') {
+      stage ('Stage#3 : Build') {
         steps {
           script { 
             sh "mvn clean install"            
           }
         }
       }                  
+      stage ('Stage#4 : Build & Push Docker Image') {
+        steps {
+          script { 
+            sh "sudo docker build -t ssahajlan/myapp-1.0-jar-with-dependencies ." 
+            sh "sudo docker images"            
+          }
+        }
+      }                        
   }
 }
