@@ -13,14 +13,14 @@ pipeline {
           }
         }
       }    
-      stage ('Stage#2 : SCM Checkout') {
+ /*     stage ('Stage#2 : SCM Checkout') {
         steps {
           script {
             git 'https://github.com/ssahajlan/java-hello-world-maven.git'
             checkout scm
           }
         }
-      }  
+      }  */
       stage ('Stage#3 : Build') {
         steps {
           script { 
