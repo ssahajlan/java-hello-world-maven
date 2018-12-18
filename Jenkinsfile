@@ -51,7 +51,7 @@ pipeline {
             sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.7/bin/linux/amd64/kubectl"
             sh "chmod +x ./kubectl"
             sh "sudo mv ./kubectl /usr/local/bin/kubectl"
-            sh "sudo kubectl version"
+            /*sh "sudo kubectl version"*/
             
             sh "curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/"
             sh "sudo minikube start --vm-driver=none"
