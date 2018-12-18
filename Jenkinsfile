@@ -58,6 +58,16 @@ pipeline {
             sh "sudo kubectl run hello-minikube --image=gcr.io/google_containers_echoserver:1.4 –port=8080"
             sh "sudo kubectl expose deployment hello-minikube –-type=NodePort"
             sh "sudo kubectl get pod"
+            
+            
+            kubectl create -f nginx-deployment.yaml
+            kubectl get deployments
+            kubectl get pods --show-labels
+/*            NAME                                READY     STATUS    RESTARTS   AGE       LABELS
+nginx-deployment-2035384211-7ci7o   1/1       Running   0          18s       app=nginx,pod-template-hash=2035384211
+nginx-deployment-2035384211-kzszj   1/1       Running   0          18s       app=nginx,pod-template-hash=2035384211
+nginx-deployment-2035384211-qqcnn   1/1       Running   0          18s       app=nginx,pod-template-hash=2035384211 */
+            kubectl expose nginx-service.yaml
           }
         }
       }      
