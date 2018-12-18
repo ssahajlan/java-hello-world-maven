@@ -1,7 +1,7 @@
 pipeline {
   agent any
     stages {
-      stage ('Stage#1 : Installation') {
+      stage ('Stage#1 : Java & Mvn Install') {
         steps {
           script {
         /* when installing on CENTOS */    
@@ -10,6 +10,7 @@ pipeline {
             sh "sudo apt-get update -y"
             sh "sudo apt-get install openjdk-8-jdk -y"    
             sh "sudo apt-get install maven -y"
+            sh "sudo docker -v"
           }
         }
       }    
@@ -21,7 +22,7 @@ pipeline {
           }
         }
       }  
-      stage ('Stage#3 : Build') {
+      stage ('Stage#3 : Build JAR') {
         steps {
           script { 
             sh "mvn clean install"            
@@ -43,6 +44,22 @@ pipeline {
             sh "sudo docker run -p 3010:8080 -d ssahajlan/myapp-1.0-jar-with-dependencies"
           }
         }
-      }                        
+      }
+      stage ('Stage#5 : Install K8s & script YAML') {
+        steps {
+          script { 
+            sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.7/bin/linux/amd64/kubectl"
+            sh "chmod +x ./kubectl"
+            sh "sudo mv ./kubectl /usr/local/bin/kubectl"
+            sh "kubectl version"
+            
+            sh "curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/"
+            sh "minikube start --vm-driver=none"
+            sh "kubectl run hello-minikube --image=gcr.io/google_containers_echoserver:1.4 –port=8080"
+            sh "kubectl expose deployment hello-minikube –-type=NodePort"
+            sh "kubectl get pod"
+          }
+        }
+      }      
   }
 }
