@@ -32,7 +32,7 @@ pipeline {
       stage ('Stage#4 : Build & Push Docker Image') {
         steps {
           script { 
-            sh "sudo docker rmi ssahajlan/myapp-1.0-jar-with-dependencies"
+          /*  sh "sudo docker rmi ssahajlan/myapp-1.0-jar-with-dependencies" */
             sh "sudo docker images"
             
             sh "sudo docker build -t ssahajlan/myapp-1.0-jar-with-dependencies ." 
